@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "id": "pokepink",
+  "title": "Pokémon Pink",
+  "version": "0.1.0-beta.1",
+  "author": "ElvieBlooms",
+  "repo": "ElvieBlooms/pokepink-cart",
+  "summary": "Pokémon Pink: Special Clefairy Edition, jcferggy's Yellow hack, rebuilt as Gen1Recomp mods.",
+  "shell": "#f4a6c8",
+  "label": "label.png",
+  "base": "yellow",
+  "engine": ">=0.0.0-dev <1.0.0",
+  "seal": "open",
+  "mods": [
+    {
+      "id": "recomp_achievements",
+      "source": "github",
+      "repo": "ElvieBlooms/recomp_achievements",
+      "version": "2.8.0",
+      "sha256": "a3871b175964f28ee3891203aa58b003d8e4b7e22fe990a8337c0ac745ad0e96",
+      "options": {
+        "classicMenu": true,
+        "menuTheme": "gruvbox_light",
+        "popupStyle": "corner"
+      }
+    },
+    {
+      "id": "facets",
+      "source": "github",
+      "repo": "ElvieBlooms/facets",
+      "version": "1.2.4",
+      "sha256": "e2e913ee5459d1353378bfab41a331441c9a74c3934dd394b2290a7058805280",
+      "options": {
+        "animMode": "loop",
+        "classicClefairy": "pink",
+        "classicIcons": "minidex",
+        "classicMons": "gb_crystal",
+        "classicTextBox": "pinkwood:1",
+        "classicWindows": "pink:3"
+      }
+    },
+    {
+      "id": "emerald_lens",
+      "source": "github",
+      "repo": "ElvieBlooms/emerald_lens",
+      "version": "1.1.1",
+      "sha256": "f1b9192392ca403067113a946f8ea52dc9d3beee77438b422fbd54e4f669558b",
+      "options": {
+        "characterGb1": "DAWN",
+        "lookGb1_DAWN": "dawn_hikari"
+      }
+    },
+    {
+      "id": "pink_partner",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "3da71f64051abaeb8a9478d044ceed14fab6c96e4558de8e7c748f6ce8fcfb31"
+    },
+    {
+      "id": "pink_species",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "e67e36e4adcefd5408b687e9e782fd0a9e34704fa0a994f2468114f3a36e4a57"
+    },
+    {
+      "id": "pink_encounters_trainers",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "5cb569d7a3fa42d9cd28bed5e153e9d64adb3cbf0d99d0896e07cb73234e5daf"
+    },
+    {
+      "id": "pink_palettes",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "a8ceeb0a0e66fb5145f0fb28aaa4f3c0b400795a300417b579bc7577392693b4"
+    },
+    {
+      "id": "pink_tilesets",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "9c2ee0ebca3982f82e7a5874b58616118dca086329cf26e11ca94172f36b63b6"
+    },
+    {
+      "id": "pink_presentation",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "c5540a69c546366632b797e8b09758a6cdfbf9d107434c7096a97f7b9a165e34"
+    },
+    {
+      "id": "pink_world_tweaks",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "b5a2979ecd59b24bd5ce74db526e32513caf4b28d055f0b73ee56227762db2e1"
+    },
+    {
+      "id": "pink_manga_events",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "405bb9ad6ea76bc1bca201e4bc3ccaedc48b8722a3dc1c16f779b9179bafd7fc"
+    },
+    {
+      "id": "pink_voice",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "e627e4e1e25f58cd8e34683c996f26ccb2239c88321b36f3bec537f2221fc3db"
+    },
+    {
+      "id": "pink_achievements",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "cfae36204029e39a6fd9c320ee225b8bb34c325d71ea01434da2c6f5221ade0a"
+    },
+    {
+      "id": "pink_look_picker",
+      "source": "github",
+      "repo": "ElvieBlooms/pokepink-g1r",
+      "version": "0.3.0",
+      "sha256": "4b7cf8f3103e13121cb26f5e5952b4739b8e1524d983f36938252bdebd1011ee"
+    }
+  ],
+  "load_order": [
+    "pink_partner",
+    "pink_species",
+    "pink_encounters_trainers",
+    "pink_palettes",
+    "pink_tilesets",
+    "pink_presentation",
+    "pink_world_tweaks",
+    "pink_manga_events",
+    "pink_voice",
+    "recomp_achievements",
+    "pink_achievements",
+    "facets",
+    "pink_look_picker",
+    "emerald_lens"
+  ]
+}
