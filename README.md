@@ -15,20 +15,26 @@ published separately, and the cart pins each one to an exact build.
 
 ## Beta
 
-This is **0.1.0-beta.1**, a work-in-progress beta. Testers can compare what
+This is **0.1.0-beta.2**, a work-in-progress beta. Testers can compare what
 they see against the
 [beta walkthrough](https://github.com/ElvieBlooms/pokepink-g1r/blob/main/docs/WALKTHROUGH.md)
 and report anything that doesn't match.
 
 ## The Pink mods
 
-All eleven come from release `v0.3.0` of `ElvieBlooms/pokepink-g1r`, so
+All eleven come from release `v0.3.1` of `ElvieBlooms/pokepink-g1r`, so
 they share a version. `load_order` runs `pink_partner` first and the other
 Pink mods after it, then `recomp_achievements` before `pink_achievements`,
 and `facets` before `pink_look_picker`, so PRISM exists when Oak offers it.
 
+To move pins to new releases, reading each release's `sha256sums.txt` (or
+downloading the zip and hashing it when there isn't one), with only Python 3:
+
 ```sh
-python3 tools/cartkit.py pin . ElvieBlooms/pokepink-g1r@X.Y.Z --id pink_partner
+python3 tools/repin.py                              # every GitHub pin to its latest release
+python3 tools/repin.py pokepink-g1r=0.3.1           # one repo or mod id to a set version
+python3 tools/repin.py --add ElvieBlooms/name_tags  # pin another mod
+python3 tools/repin.py --cart-version 0.1.0-beta.3 --dry-run
 ```
 
 ## The other mods and their starting settings
