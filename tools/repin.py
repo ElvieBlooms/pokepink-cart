@@ -4,6 +4,9 @@
   python3 tools/repin.py                              every GitHub pin to its latest release
   python3 tools/repin.py pokepink-g1r=0.3.1           one repo (or mod id) to a set version
   python3 tools/repin.py --add ElvieBlooms/name_tags  pin another mod at its latest release
+  python3 tools/repin.py --add ElvieBlooms/recomp_achievements:recomp_achievements_online
+                                                      a second mod from the same repo, by id
+  python3 tools/repin.py --off field_notes            ship a pin switched off (--on undoes it)
   python3 tools/repin.py --cart-version 0.1.0-beta.3  also bump the cart
   python3 tools/repin.py --dry-run                    show what would change, write nothing
 
@@ -11,9 +14,11 @@ A mod's hash comes from its release's sha256sums.txt when it has one, and
 otherwise from downloading <id>-<version>.zip and hashing it, which is what
 cartkit does. Options and load_order are kept; an added mod goes on the end
 of load_order. Pre-releases are skipped unless you name the version.
+A pin shipped off is installed with its options but doesn't run until the
+player switches it on in the mod manager.
 Needs only Python 3; set GITHUB_TOKEN if GitHub rate-limits you.
 """
-import argparse, hashlib, json, os, re, sys, urllib.request
+import argparse, hashlib, json, os, re, subprocess, sys, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CART = os.path.join(HERE, "..", "cart.json")
@@ -26,10 +31,29 @@ def get(url):
     return urllib.request.urlopen(req, timeout=60)
 
 
+def vkey(v):
+    return [int(x) if x.isdigit() else x for x in re.split(r"[.-]", v)]
+
+
+def latest_tag(repo):
+    # where the release page can't be reached: the newest v1.2.3 tag that
+    # isn't a pre-release (anything with a "-" after the version)
+    out = subprocess.run(["git", "ls-remote", "--tags", "--refs", "https://github.com/%s" % repo],
+                         capture_output=True, text=True, timeout=120)
+    tags = [l.rsplit("refs/tags/", 1)[-1] for l in out.stdout.splitlines()]
+    stable = [t[1:] for t in tags if re.fullmatch(r"v\d+(\.\d+)*", t)]
+    if not stable:
+        raise RuntimeError("%s has no release tags" % repo)
+    return max(stable, key=vkey)
+
+
 def latest(repo):
     # github.com/<repo>/releases/latest redirects to .../releases/tag/v1.2.3
-    with get("https://github.com/%s/releases/latest" % repo) as r:
-        m = re.search(r"/releases/tag/v?([^/?#]+)$", r.geturl())
+    try:
+        with get("https://github.com/%s/releases/latest" % repo) as r:
+            m = re.search(r"/releases/tag/v?([^/?#]+)$", r.geturl())
+    except Exception:
+        return latest_tag(repo)
     if not m:
         raise RuntimeError("%s has no published release" % repo)
     return m.group(1)
@@ -71,7 +95,9 @@ def sha256(repo, mod_id, version):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("pins", nargs="*", metavar="REPO_OR_ID=VERSION")
-    ap.add_argument("--add", action="append", default=[], metavar="OWNER/REPO")
+    ap.add_argument("--add", action="append", default=[], metavar="OWNER/REPO[:ID]")
+    ap.add_argument("--off", action="append", default=[], metavar="ID")
+    ap.add_argument("--on", action="append", default=[], metavar="ID")
     ap.add_argument("--cart-version")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
@@ -86,14 +112,25 @@ def main():
     with open(CART, encoding="utf-8") as fh:
         cart = json.load(fh)
     mods = cart.setdefault("mods", [])
-    for repo in a.add:
-        mod_id = repo.split("/")[-1].replace("-", "_").lower()
+    for spec in a.add:
+        repo, _, mod_id = spec.partition(":")
+        mod_id = mod_id or repo.split("/")[-1].replace("-", "_").lower()
         if any(m.get("id") == mod_id for m in mods):
             print("repin: %s is already pinned" % mod_id)
             continue
         mods.append({"id": mod_id, "source": "github", "repo": repo, "version": "", "sha256": ""})
         if isinstance(cart.get("load_order"), list):
             cart["load_order"].append(mod_id)
+
+    for mod_id, on in [(i, False) for i in a.off] + [(i, True) for i in a.on]:
+        mod = next((m for m in mods if m.get("id") == mod_id), None)
+        if not mod:
+            sys.exit("repin: %s isn't pinned" % mod_id)
+        if on:
+            mod.pop("enabled", None)
+        else:
+            mod["enabled"] = False
+        print("  %-26s ships %s" % (mod_id, "on" if on else "off"))
 
     versions, failed, changed = {}, [], 0
     for mod in mods:
@@ -103,6 +140,9 @@ def main():
         short = repo.split("/")[-1].lower()
         try:
             version = wanted.get(mod_id.lower()) or wanted.get(short) or wanted.get(repo.lower())
+            if not version and "-" in (mod.get("version") or ""):
+                # a pinned pre-release stays put until you name a version
+                version = mod["version"]
             if not version:
                 if repo not in versions:
                     versions[repo] = latest(repo)

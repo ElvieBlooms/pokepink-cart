@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "pokepink",
   "title": "Pokémon Pink",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.3",
   "author": "ElvieBlooms",
   "repo": "ElvieBlooms/pokepink-cart",
   "summary": "Pokémon Pink: Special Clefairy Edition, jcferggy's Yellow hack, rebuilt as Gen1Recomp mods.",
@@ -16,8 +16,8 @@
       "id": "recomp_achievements",
       "source": "github",
       "repo": "ElvieBlooms/recomp_achievements",
-      "version": "2.8.0",
-      "sha256": "a3871b175964f28ee3891203aa58b003d8e4b7e22fe990a8337c0ac745ad0e96",
+      "version": "2.9.1",
+      "sha256": "f60c8a9105a3486704c11d445f70c53889c60ef7d886cdffd6d1ddd5e87667c0",
       "options": {
         "classicMenu": true,
         "menuTheme": "gruvbox_light",
@@ -28,8 +28,8 @@
       "id": "facets",
       "source": "github",
       "repo": "ElvieBlooms/facets",
-      "version": "1.2.5",
-      "sha256": "cdccbef6f04412ca0210c6c3e2db53893ce9fcb88ac1e97b46bb105c1f7a9219",
+      "version": "1.3.3",
+      "sha256": "62b37c4bfc7b73f3430203007edc4a44a34519e62e8c5cbd3bfc443f288e7eaf",
       "options": {
         "animMode": "loop",
         "classicClefairy": "pink",
@@ -43,8 +43,8 @@
       "id": "emerald_lens",
       "source": "github",
       "repo": "ElvieBlooms/emerald_lens",
-      "version": "1.1.1",
-      "sha256": "f1b9192392ca403067113a946f8ea52dc9d3beee77438b422fbd54e4f669558b",
+      "version": "1.2.0",
+      "sha256": "20929c94475184a091aa4a66529bc7c66ac67573b06a9e3d4bd89a4a70b5c007",
       "options": {
         "characterGb1": "DAWN",
         "lookGb1_DAWN": "dawn_hikari"
@@ -54,92 +54,116 @@
       "id": "pink_partner",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "cc1501d02cc300b33d8ad1d06a1e2c92d0c2a21197fab2c7b4dab3eb3eaf56a7"
+      "version": "0.3.2",
+      "sha256": "db5edfa99f84aa753e76eb14bd84a895d500750bc6b3c02797bfb248671241ff"
     },
     {
       "id": "pink_species",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "3c853342c89a542265341dddd977fd4c79e0cbd8371b026b724661b4505f6676"
+      "version": "0.3.2",
+      "sha256": "3062d83391e598ca1b7db509b4e848230dc6758ef62f4c293b8ef1fd15d0b80c"
     },
     {
       "id": "pink_encounters_trainers",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "c6efce5738deb9070a0b7f216bd56bfd557fd65627d1319acbf77166f3d073e7"
+      "version": "0.3.2",
+      "sha256": "98610f4ee4496d6018582ab950dc4ac1027ed448d9e6d37d88d793a77c869358"
     },
     {
       "id": "pink_palettes",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "bf0fab514dc6746b243d8340c6ff2f75c603adcbc048c7cd26afb20aa168cae9"
+      "version": "0.3.2",
+      "sha256": "bd7c3343e5b3fab2f5ba37e3286239c3e5abefdd422c4c5c7bb3ef89e597d4d9"
     },
     {
       "id": "pink_tilesets",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "0afa0d7f8783c597c99286b54035e4d11e545b4f9603101bee9a166c8f99d6cb"
+      "version": "0.3.2",
+      "sha256": "b07bbb3c491f140d09442a863c3a1f158d8ca7d3b88665754a00076cdcde20a9"
     },
     {
       "id": "pink_presentation",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "244086bca15d8bbeb38cf648977a99d453202d8589de32346fff4844f661a412"
+      "version": "0.3.2",
+      "sha256": "73b746dd4d588e791008dd068fae7036423750ad8aea87be28935ce7e7951d4d"
     },
     {
       "id": "pink_world_tweaks",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "f5dbb5d3c92cabc4c4ec00710de764db02afa6a7ac4229112d18aae43e043901"
+      "version": "0.3.2",
+      "sha256": "d2043220c214a904a15bd1e8fe552eb991c34a663a4e86e195cb105c11fda4c6"
     },
     {
       "id": "pink_manga_events",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "c918ec308ff744968fc301f783909e6244e6444025caf0f58c8d6e742d99ada8"
+      "version": "0.3.2",
+      "sha256": "073e6ded019200189fd98d41ca763e82ada3adc554314123823ba5bc1c4e55eb"
     },
     {
       "id": "pink_voice",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "dddf413e2f36f1ffed3c6f7273b5fa1810a878705770a668a648af5cc2bd4aba"
+      "version": "0.3.2",
+      "sha256": "7440eabe89b655c57253afb63497a98028a28f0feea2875b3d081a07e07bfa2a"
     },
     {
       "id": "pink_achievements",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "b7fb487580073c76b17114d766adfa04f86230f4366abca46b124368fe3bd841"
+      "version": "0.3.2",
+      "sha256": "7a9f60bad62a2186e6f12225adf6057fe71497e04b908ac8dacb3d092346f7f9"
     },
     {
       "id": "pink_look_picker",
       "source": "github",
       "repo": "ElvieBlooms/pokepink-g1r",
-      "version": "0.3.1",
-      "sha256": "fd6f5ae545fad5a10b403fe1eb5cf795fc679e4866572414bcfefa83d83555b7"
+      "version": "0.3.2",
+      "sha256": "1722bee4d75d9a3db8e8e32c0313557fb034b3e5934030b9caf6979675dbcb04"
     },
     {
       "id": "name_tags",
       "source": "github",
       "repo": "ElvieBlooms/name_tags",
-      "version": "1.3.0",
-      "sha256": "c98dcf6f58f11789e533d6b28b7c9f1c1a7e6650c1b726a1c8c0dc5bb884560f"
+      "version": "1.4.0",
+      "sha256": "36a3a468e136d9a52cd8d0a8a5fbd5ac338c1831284636d18b7ec5ffc0b79c97"
     },
     {
       "id": "prism_importer",
       "source": "github",
       "repo": "ElvieBlooms/prism_importer",
-      "version": "0.3.0",
-      "sha256": "be898f393c8d11f49fa623510b3d9acaa1f359b37d3a8d93a30668f39dd79bf1"
+      "version": "0.4.0",
+      "sha256": "beabc665f36a89527e8e15a7955abca0c8cfc262caeabec9f6f9b5fd59dd3e48"
+    },
+    {
+      "id": "field_notes",
+      "source": "github",
+      "repo": "ElvieBlooms/field_notes",
+      "version": "0.2.0",
+      "sha256": "e675743f355eb97630a2a8b8ff0cabef40ebf8fce4a760bb11de37e42e254b57",
+      "enabled": false
+    },
+    {
+      "id": "catch_of_the_day",
+      "source": "github",
+      "repo": "ElvieBlooms/catch_of_the_day",
+      "version": "0.1.0-beta.4",
+      "sha256": "5f1fad8b3eb87b53bfd03e83b2d48c2436a7eb7ddee69a1e565f6a62c12ed516",
+      "enabled": false
+    },
+    {
+      "id": "recomp_achievements_online",
+      "source": "github",
+      "repo": "ElvieBlooms/recomp_achievements",
+      "version": "2.9.1",
+      "sha256": "739077462aa93ed21e4006b53211522f81d1370727c9a1e601ff93304aeb2d99",
+      "enabled": false
     }
   ],
   "load_order": [
@@ -153,11 +177,14 @@
     "pink_manga_events",
     "pink_voice",
     "recomp_achievements",
+    "recomp_achievements_online",
     "pink_achievements",
     "facets",
     "pink_look_picker",
     "emerald_lens",
     "name_tags",
-    "prism_importer"
+    "prism_importer",
+    "field_notes",
+    "catch_of_the_day"
   ]
 }

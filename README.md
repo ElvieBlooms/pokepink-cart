@@ -15,14 +15,15 @@ published separately, and the cart pins each one to an exact build.
 
 ## Beta
 
-This is **0.1.0-beta.2**, a work-in-progress beta. Testers can compare what
+This is **0.1.0-beta.3**, a work-in-progress beta. Testers can compare what
 they see against the
 [beta walkthrough](https://github.com/ElvieBlooms/pokepink-g1r/blob/main/docs/WALKTHROUGH.md)
-and report anything that doesn't match.
+and report anything that doesn't match. The same walkthrough is in Field
+Notes, which the cart carries switched off (see below).
 
 ## The Pink mods
 
-All eleven come from release `v0.3.1` of `ElvieBlooms/pokepink-g1r`, so
+All eleven come from release `v0.3.2` of `ElvieBlooms/pokepink-g1r`, so
 they share a version. `load_order` runs `pink_partner` first and the other
 Pink mods after it, then `recomp_achievements` before `pink_achievements`,
 and `facets` before `pink_look_picker`, so PRISM exists when Oak offers it.
@@ -34,8 +35,16 @@ downloading the zip and hashing it when there isn't one), with only Python 3:
 python3 tools/repin.py                              # every GitHub pin to its latest release
 python3 tools/repin.py pokepink-g1r=0.3.1           # one repo or mod id to a set version
 python3 tools/repin.py --add ElvieBlooms/name_tags  # pin another mod
-python3 tools/repin.py --cart-version 0.1.0-beta.3 --dry-run
+python3 tools/repin.py --add ElvieBlooms/recomp_achievements:recomp_achievements_online
+                                                    # a second mod from one repo, by id
+python3 tools/repin.py --off field_notes            # ship a pin switched off (--on undoes it)
+python3 tools/repin.py --cart-version 0.1.0-beta.4 --dry-run
 ```
+
+Pre-releases are only pinned when you name the version, as with
+`catch_of_the_day=0.1.0-beta.4`, and a pinned pre-release stays where it is
+until you name another. Where GitHub's release page can't be
+reached, the newest `vX.Y.Z` tag stands in for the latest release.
 
 ## The other mods and their starting settings
 
@@ -49,9 +58,25 @@ the cart pins:
 
 | Mod | Starting settings |
 |---|---|
-| `recomp_achievements` (pinned at 2.8.0) | `classicMenu=true` (the CLASSIC MENU look), `menuTheme=gruvbox_light`, `popupStyle=corner`; it plays Pink's own list on this cart, on the `pokepink` board |
-| `facets` (pinned at 1.2.4, which has the PINK and PINK WOOD window sets) | `classicMons=gb_crystal` (Crystal's animated Pokemon), `animMode=loop`, `classicIcons=minidex`, `classicWindows=pink:3` (PINK BLUSH), `classicTextBox=pinkwood:1` (PINK WOOD ROSE), `classicClefairy=pink` (GAME: Pink's own Clefairy) |
-| `emerald_lens` (pinned at 1.1.1) | `characterGb1=DAWN`, `lookGb1_DAWN=dawn_hikari` (Dawn, HIKARI look) |
+| `recomp_achievements` (pinned at 2.9.1) | `classicMenu=true` (the CLASSIC MENU look), `menuTheme=gruvbox_light`, `popupStyle=corner`; it plays Pink's own list on this cart, on the `pokepink` board |
+| `facets` (pinned at 1.3.3) | `classicMons=gb_crystal` (Crystal's animated Pokemon), `animMode=loop`, `classicIcons=minidex`, `classicWindows=pink:3` (PINK BLUSH), `classicTextBox=pinkwood:1` (PINK WOOD ROSE), `classicClefairy=pink` (GAME: Pink's own Clefairy) |
+| `emerald_lens` (pinned at 1.2.0) | `characterGb1=DAWN`, `lookGb1_DAWN=dawn_hikari` (Dawn, HIKARI look) |
+| `name_tags` (pinned at 1.4.0) | its own defaults |
+| `prism_importer` (pinned at 0.4.0) | its own defaults |
+
+### Switched off until you want them
+
+Three more come installed but switched off (`"enabled": false`), so a player
+has them on hand and turns them on in the Mods manager when they like:
+
+| Mod | What it adds |
+|---|---|
+| `recomp_achievements_online` (2.9.1) | posts your Pink achievements to the online leaderboard; loads right after `recomp_achievements` |
+| `field_notes` (0.2.0) | tester's checklists on the second screen, Pink's beta walkthrough included |
+| `catch_of_the_day` (0.1.0-beta.4) | daily swarms and contests with a Route Report |
+
+A pin that's off is still downloaded and given its options, so switching it
+on needs nothing else.
 
 These are the settings from Elvie's own playtest. Facets' other rows (COLORS,
 YOUR SIDE, SCENE COLOURS, BORDERS) were on their defaults, so they aren't
